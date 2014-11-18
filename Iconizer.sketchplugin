@@ -1,0 +1,60 @@
+// shortcut for Icons (shift option cmd ])
+
+#import 'lib/oauth.js'
+#import 'lib/sha1.js'
+#import 'lib/utils.js'
+
+/*
+OAuth oauth_consumer_key="da62ada23d1c41b89ec7b8066f92b620", oauth_nonce="mjdzdMg2qWFXHqqIySO1JZ7wQUQpuKJo", oauth_signature="55F0v6wxqtM3WqVc4Dhhx6vLkk0%3D",
+oauth_signature_method="HMAC-SHA1",
+oauth_timestamp="1415609719",
+oauth_version="1.0"
+*/
+
+var secret = '4ec4a6afed804414b1e68b6bc901b947';
+
+var oauth_consumer_key = "da62ada23d1c41b89ec7b8066f92b620";
+var	oauth_nonce,
+	oauth_signature;
+var	oauth_signature_method = "HMAC-SHA1";
+var	oauth_timestamp = parseInt([[NSDate date] timeIntervalSince1970]);
+var	oauth_version = "1.0";
+
+//log(OAuth.nonce.chars);
+
+var oa = new OAuth({}, function(){});
+//log (oa);
+
+var OAuth; if (OAuth == null) OAuth = {};
+
+OAuth['nonce'] = function nonce(length) {
+        var chars = OAuth.nonce.CHARS;
+        var result = "";
+        for (var i = 0; i < length; ++i) {
+            var rnum = Math.floor(Math.random() * chars.length);
+            result += chars.substring(rnum, rnum+1);
+        }
+        return result;
+    }
+
+OAuth.nonce.CHARS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+
+log(OAuth.nonce(6));
+
+//var layer = selection[0];
+
+//var searchTerm = [layer stringValue];
+
+/*
+var iconData = {
+  'searchTerm' : searchTerm
+}
+*/
+
+//var icon = getIcon();
+
+/*
+if (icon) {
+  [layer setStringValue:icon];	
+}
+*/

@@ -1,0 +1,4 @@
+var NOUNPROJECT_API_KEY = [doc askForUserInput:"Enter your API key..." initialValue:""];
+
+var defaults = [NSUserDefaults standardUserDefaults];
+[defaults setObject:NOUNPROJECT_API_KEY forKey:"NOUNPROJECT_API_KEY"];
